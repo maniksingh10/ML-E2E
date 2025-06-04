@@ -1,0 +1,6 @@
+[ 2025-06-05 02:48:02,754 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-06-05 02:48:02,760 ] 107 dagshub - INFO - Accessing as maniksingh10
+[ 2025-06-05 02:48:03,520 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/maniksingh10/ML-E2E "HTTP/1.1 200 OK"
+[ 2025-06-05 02:48:04,278 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-06-05 02:48:04,286 ] 107 dagshub - INFO - Initialized MLflow to track repo "maniksingh10/ML-E2E"
+[ 2025-06-05 02:48:04,289 ] 107 dagshub - INFO - Repository maniksingh10/ML-E2E initialized!

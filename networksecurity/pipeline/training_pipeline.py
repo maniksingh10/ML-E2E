@@ -18,7 +18,7 @@ from networksecurity.entity.config_entity import(
 )
 
 from networksecurity.entity.artifact_entity import (
-    DataIngestionArtifact,
+    DataIngestArtifact,
     DataValidationArtifact,
     DataTransformationArtifact,
     ModelTrainerArtifact,
@@ -48,7 +48,7 @@ class TrainingPipeline:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    def start_data_validation(self,data_ingestion_artifact:DataIngestionArtifact):
+    def start_data_validation(self,data_ingestion_artifact:DataIngestArtifact):
         try:
             data_validation_config=DataValidationConfig(training_pipeline_config=self.training_pipeline_config)
             data_validation=DataValidation(data_ingestion_artifact=data_ingestion_artifact,data_validation_config=data_validation_config)

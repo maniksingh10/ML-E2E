@@ -18,12 +18,12 @@ from networksecurity.entity.config_entity import(
 )
 
 from networksecurity.entity.artifact_entity import (
-    DataIngestionArtifact,
+    DataIngestArtifact,
     DataValidationArtifact,
     DataTransformationArtifact,
     ModelTrainerArtifact,
 )
-
+from networksecurity.cloud.s3_syncer import S3Sync
 from networksecurity.constants.training_pipeline import TRAINING_BUCKET_NAME
 from networksecurity.constants.training_pipeline import SAVED_MODEL_DIR
 import sys
@@ -40,14 +40,14 @@ class TrainingPipeline:
             self.data_ingestion_config=DataIngestionConfig(training_pipeline_config=self.training_pipeline_config)
             logging.info("Start data Ingestion")
             data_ingestion=DataIngestion(data_ingestion_config=self.data_ingestion_config)
-            data_ingestion_artifact=data_ingestion.initiate_data_ingestion()
+            data_ingestion_artifact=data_ingestion.initiate_data()
             logging.info(f"Data Ingestion completed and artifact: {data_ingestion_artifact}")
             return data_ingestion_artifact
         
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    def start_data_validation(self,data_ingestion_artifact:DataIngestionArtifact):
+    def start_data_validation(self,data_ingestion_artifact:DataIngestArtifact):
         try:
             data_validation_config=DataValidationConfig(training_pipeline_config=self.training_pipeline_config)
             data_validation=DataValidation(data_ingestion_artifact=data_ingestion_artifact,data_validation_config=data_validation_config)
