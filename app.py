@@ -36,7 +36,6 @@ collection = database[DATA_INGESTION_COLLECTION_NAME]
 app = FastAPI()
 origins = ["*"]
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
